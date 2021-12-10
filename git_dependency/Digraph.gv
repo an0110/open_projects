@@ -1,0 +1,7 @@
+digraph {
+	A [label=ka]
+	B [label=BW]
+	C [label=LC]
+	A -> B
+	A -> C
+}
