@@ -1,4 +1,4 @@
 venv/.* 
 /venv/
 .idea
-z_others/tips_x2.txt
+/z_others/tips_x2.txt
