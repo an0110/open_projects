@@ -40,6 +40,7 @@ transfer_dir = join(json_data["general_data"]["ssd_dir"], json_data["general_dat
 data = data[0].split(",")
 
 total_nr_links = len(data)
+
 # counter used in case we want to number the titles
 counter = 1
 
@@ -61,7 +62,7 @@ ydl_opt_mp3 ={
         }
 if format == "mp3":
     ydl_opts['postprocessors'] = ydl_opt_mp3["mp3"]
-    ydl_opts['format'] = 'worst'
+    ydl_opts['format'] = 'best'
 
 for element in data: # counter,element enumerate(data):
     if numbered_videos == "True":
@@ -70,7 +71,7 @@ for element in data: # counter,element enumerate(data):
     pprint(ydl_opts)
 
     print ("downloading {} out of {}".format(counter, total_nr_links))
-    ydl.download(element)
+    ydl.download([element])
     counter += 1
 
 
