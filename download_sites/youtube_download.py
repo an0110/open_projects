@@ -10,17 +10,14 @@ import json
 #FYI: to test quality options foy YT videos:  youtube-dl -F <link>
 
 current_time = time()
-
+## comment stuff, in case NO reading from JSON file is needed
 # dir_name = ""  #
 # format = "mp4" ## default is mp4  - do nothing
 #                ## mp3 - convert to MP3
-
 ### set this to true, if the downloaded files on the SD card should be moved on the SSD drive
 # move_to_ssd = True
-
 # ssd_location = r"C:\DOWNLOADS\yt_cb_out\manual_dw\11"
 # sd_card_location = join(r"E:\youtube", dir_name)
-
 #data =  [
 # [""]
 # ]
@@ -39,9 +36,11 @@ move_to_ssd = json_data["general_data"]["move_to_ssd"]
 numbered_videos = json_data["general_data"]["use_counter"]
 transfer_dir = join(json_data["general_data"]["ssd_dir"], json_data["general_data"]["sub_dir"])
 
+## links are separated by comma
+data = data[0].split(",")
+
 total_nr_links = len(data)
-
-
+# counter used in case we want to number the titles
 counter = 1
 
 ydl_opts = {
@@ -62,9 +61,10 @@ ydl_opt_mp3 ={
         }
 if format == "mp3":
     ydl_opts['postprocessors'] = ydl_opt_mp3["mp3"]
+    ydl_opts['format'] = 'worst'
 
 for element in data: # counter,element enumerate(data):
-    if numbered_videos == True:
+    if numbered_videos == "True":
         ydl_opts['outtmpl'] = r'{}\{}_%(title)s.%(ext)s'.format(output_dir, counter)
     ydl = YoutubeDL(ydl_opts)
     pprint(ydl_opts)
