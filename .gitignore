@@ -3,3 +3,5 @@ venv/.*
 .idea
 /z_others/tips_x2.txt
 *.bak
+*.mp3
+*.mp4
