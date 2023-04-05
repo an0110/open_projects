@@ -29,20 +29,32 @@ with open(json_file, "r") as fh:
 
 # pprint (json_data)
 
+## TODO
+## counter will not work, if the element to download is a Youtube LIST
+## it will register as 1 element
+## the counting will not be appened to the file_name
+## -> idea: see if the default numbering of youtube.dl for lists can be added to the filepath; IF-ELSE
+
+
 output_dir = join(json_data["general_data"]["sd_card_dir"], json_data["general_data"]["sub_dir"])
 format = json_data["general_data"]["format"]
 data = json_data["links"]
 move_to_ssd = json_data["general_data"]["move_to_ssd"]
 numbered_videos = json_data["general_data"]["use_counter"]
 transfer_dir = join(json_data["general_data"]["ssd_dir"], json_data["general_data"]["sub_dir"])
-
+start_counter = int(json_data["general_data"]["start_counter"])
 ## links are separated by comma
 data = data[0].split(",")
+
+# ignore value from json file for the counter, if NO counting is needed
+if numbered_videos != "True":
+    start_counter = 0
+
 
 total_nr_links = len(data)
 
 # counter used in case we want to number the titles
-counter = 1
+counter = start_counter
 
 ydl_opts = {
     'format': 'best',  # 'best', #'bestaudio/best',            # best - for video  bestaudio-for audio;
@@ -62,7 +74,7 @@ ydl_opt_mp3 ={
         }
 if format == "mp3":
     ydl_opts['postprocessors'] = ydl_opt_mp3["mp3"]
-    ydl_opts['format'] = 'best'
+    ydl_opts['format'] = 'bestaudio/worst'
 
 for element in data: # counter,element enumerate(data):
     if numbered_videos == "True":
@@ -70,14 +82,19 @@ for element in data: # counter,element enumerate(data):
     ydl = YoutubeDL(ydl_opts)
     pprint(ydl_opts)
 
-    print ("downloading {} out of {}".format(counter, total_nr_links))
+    print ("downloading {} out of {}".format((counter+1), total_nr_links))
+    ## TODO - try catch if this error comes   
+        #   raise HTTPError(req.full_url, code, msg, hdrs, fp)
+        #   urllib.error.HTTPError: HTTP Error 403: Forbidden
+    
+    
     ydl.download([element])
     counter += 1
 
 
 ##if move_to_ssd = true - move the content downloaded on the SD card to the SSD drive
-if move_to_ssd:
-    print ("\n MOVING TO SSD \n")
+if move_to_ssd == "True":
+    print ("\n\n MOVING TO SSD \n\n")
     onlyfiles = [f for f in listdir(output_dir) if isfile(join(output_dir, f))]
     for file in onlyfiles:
         if file.endswith(".mp4") or file.endswith(".mp3"):
@@ -85,8 +102,10 @@ if move_to_ssd:
             shutil.move(join(output_dir, file), join(transfer_dir, file))
             sleep(2)
             print ("------move done-----")
-
+    else:
+        print ("\n\n NOT moving to SSD; file kept on SD-card \n\n")
+    
 current_time2 = time()
 diff = current_time2 - current_time
 
-pprint ("\n\n\t total time: \n {:.2f} seconds \n{:.2f} minutes\n {:.2f} hours".format(diff, (diff/60), (diff/3600)))
+pprint ("/n/n\t total time: \n {:.2f} seconds \n{:.2f} minutes\n {:.2f} hours".format(diff, (diff/60), (diff/3600)))
