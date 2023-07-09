@@ -2,7 +2,7 @@ import os.path
 
 from mutagen.easyid3 import EasyID3
 from os import walk, path
-audio = EasyID3("default.mp3_c1c2b63d27d16c5392e9bcee5ba2de76_36148938.mp3")
+#audio = EasyID3("TLFIE1099471131.mp3")
 # audio['title'] = u"Example Title"
 # audio['artist'] = u"Me"
 # audio['album'] = u"My album"
@@ -16,8 +16,8 @@ from pprint import pprint
 #     print("{} - {}".format(key, audio[key]))
 # print (audio)
 # os.rename(old, new)
-forbidden_chars_win = [ "<", ">", ":", " ", "/",   "\\",  "|", "?", "*",]
-mydir = r"E:\x"
+forbidden_chars_win = [ "<", ">", ":",  "/",   "\\",  "|", "?", "*",] #" ",
+mydir = r"C:\DOWNLOADS\yt_cb_out\manual_dw\_AUDIO\siemens_av_podcat"
 myfiles = []
 for root, dirs, files in walk(mydir, topdown=False):
     myfiles =files
@@ -26,18 +26,12 @@ for file in myfiles:
     file = os.path.join(mydir, file)
     pprint ( file)
     audio = EasyID3(file)
-    # print (audio['title'])
-    new_name =os.path.join(mydir,audio['title'][0])
-
+    new_name = audio['title'][0]
+    for f in forbidden_chars_win:
+        new_name = new_name.replace(f, " ")
+    new_name =os.path.join(mydir,new_name)
+    #exit()
     new_name = new_name + ".mp3"
-
 
     print (new_name)
     os.rename(file, new_name)
-
-
-
-# from mutagen.mp3 import MP3
-# audio = MP3("default.mp3_c1c2b63d27d16c5392e9bcee5ba2de76_36148938.mp3")
-# print (audio.info.  pprint ((audio.info.length))
-#
