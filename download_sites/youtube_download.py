@@ -7,6 +7,12 @@ from os import listdir,remove
 from os.path import isfile, join
 import json
 
+import sys
+print(sys.executable)
+print(sys.path)
+
+
+
 #FYI: to test quality options foy YT videos:  youtube-dl -F <link>
 
 current_time = time()

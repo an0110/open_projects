@@ -28,13 +28,13 @@
 from moviepy.video.io.VideoFileClip import VideoFileClip
 from moviepy.editor import *
 
-myclip = VideoFileClip(r'C:\WORK\open_projects\change_resolution\Kopie_0.mp4')
+myclip = VideoFileClip(r'E:\Captures\w.mp4')
 
 # final = myclip.fx( vfx.resize, 0.5) #1080      720    480
 final = myclip.fx( vfx.resize, 0.7) #1080      720    480
 # final.ipython_display()
 
-final.write_videofile(r"C:\WORK\open_projects\change_resolution\resize5.mp4")
+final.write_videofile(r"E:\Captures\w_r.mp4")
 
 
 
