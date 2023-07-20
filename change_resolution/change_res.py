@@ -28,13 +28,11 @@
 from moviepy.video.io.VideoFileClip import VideoFileClip
 from moviepy.editor import *
 
-myclip = VideoFileClip(r'E:\Captures\w.mp4')
+myclip = VideoFileClip(r'E:\youtube\11\Ultimate Wild Animals Collection in 8K ULTRA HD _ 8K TV.mp4')
 
-# final = myclip.fx( vfx.resize, 0.5) #1080      720    480
-final = myclip.fx( vfx.resize, 0.7) #1080      720    480
+final = myclip.fx( vfx.resize, width = 480) #1080      720    480
 # final.ipython_display()
-
-final.write_videofile(r"E:\Captures\w_r.mp4")
+final.write_videofile(r"E:\youtube\11\resize_8ktest.mp4")
 
 
 
