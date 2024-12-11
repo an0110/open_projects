@@ -3,6 +3,8 @@
 ## created it each month
 ## TODO - finda  way to store the results, long(ish) term
 
+## TODO - add a total.txt file
+
 # TODO  - remuve duplicated code!!!!!
 ## all FOR loops, like line 43-> 85
 
@@ -137,7 +139,7 @@ for key in c35.keys():
     ## IF  EXISTS - DONT    
 #############################
 k34 = {
-    "facturi":["gaz", "curent", "rds"],
+    "facturi":["intretinere", "curent", "rds"],
     "email": "maho",
     "exceptii": "nu",
     "observatii": ["verificat scazut 20 Ron fond rulemtn"],    
@@ -183,7 +185,12 @@ for key in k34.keys():
             with open (  os.path.join(full_name, filename), 'a+') as my_file:
                 my_file.write(el)
                 my_file.write("\n")
-                
+    
+    # ## fisier pt total
+    # default_total = "total"        
+    # filenametotal = default_total+".txt"        
+    # with open (  os.path.join(full_name, filename), 'a+') as my_file:
+    
     ## TODO: sa nu se suprascrie fisiere si foldere
     ## IF  EXISTS - DONT    
 
