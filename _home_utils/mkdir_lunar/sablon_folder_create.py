@@ -47,6 +47,9 @@ c24 = {
     "observatii": ["3,6,9,12: trimis rent receipt", "fisier cu total"]
 }
 
+
+# for apart in [c24, ]
+
 for key in c24.keys():
     print (key)
     
@@ -102,7 +105,7 @@ for key in c24.keys():
         
     ## TODO: sa nu se suprascrie fisiere si foldere
     ## IF  EXISTS - DONT    
-exit ()
+
 #############################
 c35 = {
     "facturi":["gaz", "curent"],
