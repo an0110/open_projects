@@ -19,6 +19,10 @@ from datetime import datetime
    
 parent_dir = r"E:\WORK\fact_struct2"
 
+pprint ("=========== current dir  %s =========="  %parent_dir) 
+
+
+
 def create_subdir_name(ap_name):
     subir_name = ""
     
@@ -83,10 +87,22 @@ for key in c24.keys():
             with open (  os.path.join(full_name, filename), 'a+') as my_file:
                 my_file.write(el)
                 my_file.write("\n")
-                
+
+    # total 
+    filename_t = "total.txt"
+    if os.path.exists(  os.path.join(full_name, filename_t) ):
+        pass 
+    else:
+        with open (  os.path.join(full_name, filename_t), 'a+') as my_file:
+            for el in c24["facturi"]:        
+                my_file.write(el)
+                #my_file.write("\t"*int((12-len(el))/4)) 
+                my_file.write("\n")
+            my_file.write("total")
+        
     ## TODO: sa nu se suprascrie fisiere si foldere
     ## IF  EXISTS - DONT    
-
+exit ()
 #############################
 c35 = {
     "facturi":["gaz", "curent"],
@@ -134,7 +150,18 @@ for key in c35.keys():
             with open (  os.path.join(full_name, filename), 'a+') as my_file:
                 my_file.write(el)
                 my_file.write("\n")
-                
+    
+    # total 
+    filename_t = "total.txt"
+    if os.path.exists(  os.path.join(full_name, filename_t) ):
+        pass 
+    else:
+        with open (  os.path.join(full_name, filename_t), 'a+') as my_file:
+            for el in c24["facturi"]:        
+                my_file.write(el)
+                #my_file.write("\t"*int((12-len(el))/4)) 
+                my_file.write("\n")
+            my_file.write("total")                
     ## TODO: sa nu se suprascrie fisiere si foldere
     ## IF  EXISTS - DONT    
 #############################
@@ -186,10 +213,17 @@ for key in k34.keys():
                 my_file.write(el)
                 my_file.write("\n")
     
-    # ## fisier pt total
-    # default_total = "total"        
-    # filenametotal = default_total+".txt"        
-    # with open (  os.path.join(full_name, filename), 'a+') as my_file:
+    # total 
+    filename_t = "total.txt"
+    if os.path.exists(  os.path.join(full_name, filename_t) ):
+        pass 
+    else:
+        with open (  os.path.join(full_name, filename_t), 'a+') as my_file:
+            for el in c24["facturi"]:        
+                my_file.write(el)
+                #my_file.write("\t"*int((12-len(el))/4)) 
+                my_file.write("\n")
+            my_file.write("total")
     
     ## TODO: sa nu se suprascrie fisiere si foldere
     ## IF  EXISTS - DONT    
@@ -241,6 +275,18 @@ for key in ap38.keys():
             with open (  os.path.join(full_name, filename), 'a+') as my_file:
                 my_file.write(el)
                 my_file.write("\n")
+
+    # total 
+    filename_t = "total.txt"
+    if os.path.exists(  os.path.join(full_name, filename_t) ):
+        pass 
+    else:
+        with open (  os.path.join(full_name, filename_t), 'a+') as my_file:
+            for el in c24["facturi"]:        
+                my_file.write(el)
+                #my_file.write("\t"*int((12-len(el))/4)) 
+                my_file.write("\n")
+            my_file.write("total")
                 
     ## TODO: sa nu se suprascrie fisiere si foldere
     ## IF  EXISTS - DONT    
