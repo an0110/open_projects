@@ -40,208 +40,38 @@ else:
     pprint ("creating %s"  %parent_dir) 
     os.mkdir(parent_dir) 
 
-
-c24 = {
+apart_list = {
+"c24" : {
     "facturi":["gaz", "curent", "intretinere"],
     "email": "vianney",
     "observatii": ["3,6,9,12: trimis rent receipt", "fisier cu total"]
-}
+},
 
-
-# for apart in [c24, ]
-
-for key in c24.keys():
-    print (key)
-    
-    full_name = create_subdir_name("c24")
-    full_name = os.path.join(parent_dir,full_name)
-    
-    ## create folder for current month
-    if os.path.exists(full_name):
-        pass
-    else:
-        pprint ("/n")
-        pprint ("creating %s"  %full_name) 
-        os.mkdir(full_name) 
-    
-    print (full_name)
-
-    ## creeate file with email
-    if key == "email":
-        filename = "_" + key+".txt"
-        pprint (os.path.join(full_name,filename))
-                            
-        with open (  os.path.join(full_name,filename), 'w+') as my_file:
-            my_file.write(c24[key])
-    
-    # create files for each factura             
-    if key == "facturi":
-        for el in c24[key]:
-            el = el+".txt"
-            pprint (os.path.join(full_name,el))
-                               
-            with open (  os.path.join(full_name,el), 'w+') as my_file:
-                my_file.write("_")
-
-    # observatii
-    if key == "observatii":
-        filename = "_" + key+".txt"
-        for el in c24[key]:
-            with open (  os.path.join(full_name, filename), 'a+') as my_file:
-                my_file.write(el)
-                my_file.write("\n")
-
-    # total 
-    filename_t = "total.txt"
-    if os.path.exists(  os.path.join(full_name, filename_t) ):
-        pass 
-    else:
-        with open (  os.path.join(full_name, filename_t), 'a+') as my_file:
-            for el in c24["facturi"]:        
-                my_file.write(el)
-                #my_file.write("\t"*int((12-len(el))/4)) 
-                my_file.write("\n")
-            my_file.write("total")
-        
-    ## TODO: sa nu se suprascrie fisiere si foldere
-    ## IF  EXISTS - DONT    
-
-#############################
-c35 = {
+"c35": {
     "facturi":["gaz", "curent"],
     "email": "ionut",
     "observatii": ["scazut 20 Ron fond rulemtn"]    
-}
+},
 
-for key in c35.keys():
-    print (key)
-    
-    full_name = create_subdir_name("c35")
-    full_name = os.path.join(parent_dir,full_name)
-    
-    ## create folder for current month
-    if os.path.exists(full_name):
-        pass
-    else:
-        pprint ("/n")
-        pprint ("creating %s"  %full_name) 
-        os.mkdir(full_name) 
-    
-    print (full_name)
-
-    ## creeate file with email
-    if key == "email":
-        filename = "_" + key+".txt"
-        pprint (os.path.join(full_name,filename))
-                            
-        with open (  os.path.join(full_name,filename), 'w+') as my_file:
-            my_file.write(c35[key])
-    
-    # create files for each factura             
-    if key == "facturi":
-        for el in c35[key]:
-            el = el+".txt"
-            pprint (os.path.join(full_name,el))
-                               
-            with open (  os.path.join(full_name,el), 'w+') as my_file:
-                my_file.write("_")
-
-    # observatii
-    if key == "observatii":
-        filename = "_" + key+".txt"
-        for el in c35[key]:
-            with open (  os.path.join(full_name, filename), 'a+') as my_file:
-                my_file.write(el)
-                my_file.write("\n")
-    
-    # total 
-    filename_t = "total.txt"
-    if os.path.exists(  os.path.join(full_name, filename_t) ):
-        pass 
-    else:
-        with open (  os.path.join(full_name, filename_t), 'a+') as my_file:
-            for el in c24["facturi"]:        
-                my_file.write(el)
-                #my_file.write("\t"*int((12-len(el))/4)) 
-                my_file.write("\n")
-            my_file.write("total")                
-    ## TODO: sa nu se suprascrie fisiere si foldere
-    ## IF  EXISTS - DONT    
-#############################
-k34 = {
+"k34": {
     "facturi":["intretinere", "curent", "rds"],
     "email": "maho",
     "exceptii": "nu",
     "observatii": ["verificat scazut 20 Ron fond rulemtn"],    
- }
+ },
 
-for key in k34.keys():
-    print (key)
-    
-    full_name = create_subdir_name("k34")
-    full_name = os.path.join(parent_dir,full_name)
-    
-    ## create folder for current month
-    if os.path.exists(full_name):
-        pass
-    else:
-        pprint ("/n")
-        pprint ("creating %s"  %full_name) 
-        os.mkdir(full_name) 
-    
-    print (full_name)
-
-    ## creeate file with email
-    if key == "email":
-        filename = "_" + key+".txt"
-        pprint (os.path.join(full_name,filename))
-                            
-        with open (  os.path.join(full_name,filename), 'w+') as my_file:
-            my_file.write(k34[key])
-    
-    # create files for each factura             
-    if key == "facturi":
-        for el in k34[key]:
-            el = el+".txt"
-            pprint (os.path.join(full_name,el))
-                               
-            with open (  os.path.join(full_name,el), 'w+') as my_file:
-                my_file.write("_")
-
-    # observatii
-    if key == "observatii":
-        filename = "_" + key+".txt"
-        for el in k34[key]:
-            with open (  os.path.join(full_name, filename), 'a+') as my_file:
-                my_file.write(el)
-                my_file.write("\n")
-    
-    # total 
-    filename_t = "total.txt"
-    if os.path.exists(  os.path.join(full_name, filename_t) ):
-        pass 
-    else:
-        with open (  os.path.join(full_name, filename_t), 'a+') as my_file:
-            for el in c24["facturi"]:        
-                my_file.write(el)
-                #my_file.write("\t"*int((12-len(el))/4)) 
-                my_file.write("\n")
-            my_file.write("total")
-    
-    ## TODO: sa nu se suprascrie fisiere si foldere
-    ## IF  EXISTS - DONT    
-
-#############################
-ap38 = {
+"ap38" : {
     "facturi":["gaz", "curent", "intretinere", "parcare"],
     "email": "poza",
     "observatii": ["scazut 50 Ron fond rulemtn", "Facut poza"],    
  }
+}
 
-for key in ap38.keys():
-    print (key)
+for apart in apart_list.keys():
     
-    full_name = create_subdir_name("ap38")
+    pprint (apart)
+      
+    full_name = create_subdir_name(str(apart))
     full_name = os.path.join(parent_dir,full_name)
     
     ## create folder for current month
@@ -253,46 +83,53 @@ for key in ap38.keys():
         os.mkdir(full_name) 
     
     print (full_name)
-
-    ## creeate file with email
-    if key == "email":
-        filename = "_" + key+".txt"
-        pprint (os.path.join(full_name,filename))
-                            
-        with open (  os.path.join(full_name,filename), 'w+') as my_file:
-            my_file.write(ap38[key])
     
-    # create files for each factura             
-    if key == "facturi":
-        for el in ap38[key]:
-            el = el+".txt"
-            pprint (os.path.join(full_name,el))
-                               
-            with open (  os.path.join(full_name,el), 'w+') as my_file:
-                my_file.write("_")
+    for key in apart_list[apart].keys():
+        pprint (key)
+        
+        
+      
 
-    # observatii
-    if key == "observatii":
-        filename = "_" + key+".txt"
-        for el in ap38[key]:
-            with open (  os.path.join(full_name, filename), 'a+') as my_file:
-                my_file.write(el)
-                my_file.write("\n")
+        ## creeate file with email
+        if key == "email":
+            filename = "_" + key+".txt"
+            pprint (os.path.join(full_name,filename))
+                                
+            with open (  os.path.join(full_name,filename), 'w+') as my_file:
+                my_file.write(apart_list[apart][key])
+        
+        # create files for each factura             
+        if key == "facturi":
+            for el in apart_list[apart][key]:
+                el = el+".txt"
+                pprint (os.path.join(full_name,el))
+                                
+                with open (  os.path.join(full_name,el), 'w+') as my_file:
+                    my_file.write("_")
 
-    # total 
-    filename_t = "total.txt"
-    if os.path.exists(  os.path.join(full_name, filename_t) ):
-        pass 
-    else:
-        with open (  os.path.join(full_name, filename_t), 'a+') as my_file:
-            for el in c24["facturi"]:        
-                my_file.write(el)
-                #my_file.write("\t"*int((12-len(el))/4)) 
-                my_file.write("\n")
-            my_file.write("total")
-                
-    ## TODO: sa nu se suprascrie fisiere si foldere
-    ## IF  EXISTS - DONT    
+        # observatii
+        if key == "observatii":
+            filename = "_" + key+".txt"
+            for el in apart_list[apart][key]:
+                with open (  os.path.join(full_name, filename), 'a+') as my_file:
+                    my_file.write(el)
+                    my_file.write("\n")
+
+        # total 
+        filename_t = "total.txt"
+        if os.path.exists(  os.path.join(full_name, filename_t) ):
+            pass 
+        else:
+            with open (  os.path.join(full_name, filename_t), 'a+') as my_file:
+                for el in apart_list[apart]["facturi"]:        
+                    my_file.write(el)
+                    #my_file.write("\t"*int((12-len(el))/4)) 
+                    my_file.write("\n")
+                my_file.write("total")
+            
+        ## TODO: sa nu se suprascrie fisiere si foldere
+        ## IF  EXISTS - DONT    
+
 
 # dir_struct = {}
 
