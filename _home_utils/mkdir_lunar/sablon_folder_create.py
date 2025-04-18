@@ -14,7 +14,7 @@ from datetime import datetime
 #os.mkdir(path) 
 # print("Directory '%s' created" %directory) 
    
-parent_dir = r"E:\WORK\fact_struct2"
+parent_dir = r"E:\WORK\fact_2025_02"
 
 pprint ("=========== current dir  %s =========="  %parent_dir) 
 
@@ -61,8 +61,8 @@ apart_list = {
     "k34": {
         "facturi":["intretinere", "curent", "rds"],
         "email": "maho",
-        "fond_rul":"-20",
-        "observatii": ["scazut 20 Ron fond rulemtn"],    
+        "fond_rul":"-50",
+        "observatii": ["scazut -50 Ron fond rulemtn"],    
     },
 
     "ap38" : {

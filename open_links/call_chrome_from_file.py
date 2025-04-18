@@ -24,8 +24,8 @@ for line in data:
         models.append(line)
 
 total_links= len(data)
-number_of_lines_to_open = int(len(models)/6)-3 # in one batch
-seconds_to_wait = number_of_lines_to_open * 1.2 #1.22 # 1.3 #1.5
+number_of_lines_to_open = int(len(models)/9)-3 # in one batch
+seconds_to_wait = number_of_lines_to_open * 2.2 #1.22 # 1.3 #1.5
 
 
 print("... opening {} links at once...".format(number_of_lines_to_open))
