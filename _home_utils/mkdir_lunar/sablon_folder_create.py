@@ -3,7 +3,7 @@
 ## created it each month
 ## TODO - finda  way to store the results, long(ish) term
 
-## TODO - add a total.txt file
+
 
 import os 
 from pprint import pprint    
@@ -14,7 +14,9 @@ from datetime import datetime
 #os.mkdir(path) 
 # print("Directory '%s' created" %directory) 
    
-parent_dir = r"E:\WORK\fact_2025_02"
+   
+   ## luna PRECEDENTA!!!!!
+parent_dir = r"E:\WORK\fact_2025_06"
 
 pprint ("=========== current dir  %s =========="  %parent_dir) 
 
@@ -44,6 +46,14 @@ else:
 ## dict with all apartments with each specific info
 # for each apt - give 'facturi', 'email' and 'observatii'
 apart_list = {
+    
+    "ap4" : {
+        "facturi":["gaz", "curent", "intretinere"],
+        "fond_rul":"0",
+        "email": "vianney",
+        "observatii": ["scazut reparatii, rulment, garaj"]
+    },
+    
     "c24" : {
         "facturi":["gaz", "curent", "intretinere"],
         "fond_rul":"0",
@@ -52,27 +62,26 @@ apart_list = {
     },
 
     "c35": {
-        "facturi":["gaz", "curent"],
-        "email": "ionut",
-        "fond_rul":"-20",
-        "observatii": ["scazut 20 Ron fond rulemtn"]    
+        "facturi":["gaz", "curent", "rds"],
+        "email": " mama lu clementine",
+        "fond_rul":"0",
+        "observatii": ["nimic"]    
     },
 
     "k34": {
         "facturi":["intretinere", "curent", "rds"],
         "email": "maho",
-        "fond_rul":"-50",
+        "fond_rul":"0",
         "observatii": ["scazut -50 Ron fond rulemtn"],    
     },
 
     "ap38" : {
         "facturi":["gaz", "curent", "intretinere", "parcare"],
         "email": "poza",
-        "fond_rul":"-50",
+        "fond_rul":"-20",
         "observatii": ["scazut 50 Ron fond rulemtn", "Facut poza"],    
     }
 
-# #"ap4"
 # #"ap8"
 # # J29
 }
@@ -120,10 +129,14 @@ for apart in apart_list.keys():
 
         # total - create total.txt with each value
         filename_t = "total.txt"
+        file_header = apart + "   " + parent_dir[-8:]
         if os.path.exists(  os.path.join(full_name, filename_t) ):
             pass 
         else:
             with open (  os.path.join(full_name, filename_t), 'a+') as my_file:
+                my_file.write(file_header)
+                my_file.write("\n")
+                my_file.write("\n")
                 for el in apart_list[apart]["facturi"]:        
                     my_file.write(el)
                     #my_file.write("\t"*int((12-len(el))/4)) 
