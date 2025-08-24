@@ -16,7 +16,7 @@ from datetime import datetime
    
    
    ## luna PRECEDENTA!!!!!
-parent_dir = r"E:\WORK\fact_2025_06"
+parent_dir = r"E:\WORK\fact_2025_007"
 
 pprint ("=========== current dir  %s =========="  %parent_dir) 
 
@@ -50,7 +50,7 @@ apart_list = {
     "ap4" : {
         "facturi":["gaz", "curent", "intretinere"],
         "fond_rul":"0",
-        "email": "vianney",
+        "email": "adriana b",
         "observatii": ["scazut reparatii, rulment, garaj"]
     },
     
@@ -78,8 +78,8 @@ apart_list = {
     "ap38" : {
         "facturi":["gaz", "curent", "intretinere", "parcare"],
         "email": "poza",
-        "fond_rul":"-20",
-        "observatii": ["scazut 50 Ron fond rulemtn", "Facut poza"],    
+        "fond_rul":"0",
+        "observatii": [ "Facut poza"],    
     }
 
 # #"ap8"
