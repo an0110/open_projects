@@ -48,7 +48,7 @@ else:
 apart_list = {
     
     "ap4" : {
-        "facturi":["gaz", "curent", "intretinere"],
+        "facturi":["gas", "electricity", "bills"],
         "fond_rul":"0",
         "email": "adriana b",
         "observatii": ["scazut reparatii, rulment, garaj"]
@@ -62,14 +62,14 @@ apart_list = {
     },
 
     "c35": {
-        "facturi":["gaz", "curent", "rds"],
+        "facturi":["gas", "electricity", "bills"],
         "email": " mama lu clementine",
         "fond_rul":"0",
         "observatii": ["nimic"]    
     },
 
     "k34": {
-        "facturi":["intretinere", "curent", "rds"],
+        "facturi":["electricity", "bills", "internet"],
         "email": "maho",
         "fond_rul":"0",
         "observatii": ["scazut -50 Ron fond rulemtn"],    
